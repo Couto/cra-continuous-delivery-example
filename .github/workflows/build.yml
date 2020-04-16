@@ -1,7 +1,7 @@
 name: Build
 # This workflow is triggered on pushes to the repository.
 on:
-  commit:
+  push:
     branches:
       - master
 
