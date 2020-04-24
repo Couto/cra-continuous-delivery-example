@@ -1,9 +1,6 @@
 name: Release
 
-on:
-  release:
-    types:
-      - created
+on: repository_dispatch
 
 jobs:
   update_release_draft:
@@ -11,6 +8,7 @@ jobs:
     steps:
       # Drafts your next Release notes as Pull Requests are merged into "master"
       - uses: release-drafter/release-drafter@v5
+        if: github.event.action == 'create-release'
         with:
           # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
           config-name: support/release-drafter.yml
