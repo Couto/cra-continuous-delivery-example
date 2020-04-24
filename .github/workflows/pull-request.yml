@@ -1,12 +1,11 @@
 name: Pull Request
 on:
-  pull_request:
   push:
     branches-ignore:
       - master
 
 jobs:
-  sanity:
+  code-quality:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -68,7 +67,7 @@ jobs:
 
   # We dont really use this build, this is just for sanity reasons.
   # "Does the code even compile?"
-  build-cra:
+  build:
     runs-on: ubuntu-latest
 
     steps:
